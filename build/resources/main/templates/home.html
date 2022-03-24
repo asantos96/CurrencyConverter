@@ -6,25 +6,28 @@
     <style>
  body{
      background-image: url("https://thumbs.dreamstime.com/z/international-money-background-24288927.jpg");
+     text-align: center;
  }
  h1{
-     text-align: center;
+
      font-family: Tahoma, sans-serif;
-     width: 200px;
-     height: 200px;
-     margin: auto ;
+
  }
     </style>
 </head>
 <body>
-<h1> CURRENCY CONVERTER </h1>
+<h1> EUROPEAN CURRENCY CONVERTER </h1>
+<p1> Please note this converter is always converting from your entered currency to Euros. </p1>
+<p th:text="${euroKey.base}"></p>
+<p>Conversion rates pulled as of:</p>
+<p th:text="${euroKey.date}"></p>
+
 
 <form action="/q" method="get">
     <input name="currencyTypeUserSearch" type="search" placeholder="Search currency abbreviation" required="required" autocomplete="off"/>
     <input name="valueUserSearch" type="search" placeholder="Enter currency amount" required="required" autocomplete="off"/>
     <input type="submit" value="Submit">
 </form>
-
 
 
 </body>

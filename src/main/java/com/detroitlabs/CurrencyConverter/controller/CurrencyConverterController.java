@@ -9,8 +9,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
-
 
 @Controller
 public class CurrencyConverterController {
@@ -21,20 +19,59 @@ public class CurrencyConverterController {
     private Rates rates;
 
     @RequestMapping("/")
-    public String currencySearchBars(){
+    public String currencySearchBars(ModelMap modelMap) {
+        Currency euroOutput = currencyService.retrieveCurrencyData();
+//        System.out.println(euroOutput.getInternationalCurrency().getAED());
+
+        modelMap.put("euroKey", euroOutput);
         return "home";
     }
 
 
-
-
     @RequestMapping("/q")
     public String currencySearchResult(@RequestParam("currencyTypeUserSearch") String currencyAbbreviation,
-                                       @RequestParam("valueUserSearch") double value, ModelMap modelMap){
+                                       @RequestParam("valueUserSearch") double value, ModelMap modelMap) {
         Currency output = currencyService.retrieveCurrencyData();
-        modelMap.put("Key", output.getInternationalCurrency());
-        //possible equation for conversion
-        return "home";
+        modelMap.put("Key", output);
+
+        double convertedValue = 0;
+//        DEBUGGING
+//        System.out.println(currencyAbbreviation.equalsIgnoreCase("AED"));
+//        System.out.println(currencyAbbreviation);
+        if (currencyAbbreviation.equalsIgnoreCase("AED")) {
+               convertedValue = value / output.getInternationalCurrency().getAED();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("BHD")) {
+            convertedValue = value / output.getInternationalCurrency().getBHD();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("CAD")) {
+            convertedValue = value / output.getInternationalCurrency().getCAD();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("CHF")) {
+            convertedValue = value / output.getInternationalCurrency().getCHF();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("GBP")) {
+            convertedValue = value / output.getInternationalCurrency().getGBP();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("KWD")) {
+            convertedValue = value / output.getInternationalCurrency().getKWD();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("KYD")) {
+            convertedValue = value / output.getInternationalCurrency().getKYD();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("OMR")) {
+            convertedValue = value / output.getInternationalCurrency().getOMR();
+        }
+        if (currencyAbbreviation.equalsIgnoreCase("USD")) {
+            convertedValue = value / output.getInternationalCurrency().getUSD();
+        }
+//        else {
+//
+//        }
+
+        //additional modelMap, you can still utilize the "key" created above
+        modelMap.addAttribute("convertedValue", convertedValue);
+                return "searchresult";
     }
 
 }
