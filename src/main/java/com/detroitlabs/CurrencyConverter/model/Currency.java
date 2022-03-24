@@ -48,4 +48,8 @@ public class Currency {
     public void setInternationalCurrency(Rates internationalCurrency) {
         this.internationalCurrency = internationalCurrency;
     }
+
+//    public double convertedEuroAmount(double userEntered){
+//        return userEntered/internationalCurrency.BHD;
+//    }
 }

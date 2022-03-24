@@ -9,7 +9,7 @@ public class CurrencyService {
     public Currency retrieveCurrencyData(){
         RestTemplate restTemplate = new RestTemplate();
         //Looks within this URL and coordinates what class it should be pulled into
-        return restTemplate.getForObject("http://data.fixer.io/api/latest?access_key=dd9a34ac948bf2c49a6c48a34a861baf"
+        return restTemplate.getForObject("http://data.fixer.io/api/latest?access_key=7042458e54c38a7e69303e7f1a4c7711"
                 , Currency.class);
     }
 

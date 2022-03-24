@@ -1,0 +1,13 @@
+.textbox
+{
+  border: thin solid white;
+  text-align: center;
+  background-color: #234F1E;
+  word-wrap: break-word; /* words won't go from the boundry */
+    margin: 10px;
+    padding: 70px;
+}
+body{
+    color:white;
+    font-family: Tahoma, sans-serif;
+}

@@ -34,44 +34,41 @@ public class CurrencyConverterController {
         Currency output = currencyService.retrieveCurrencyData();
         modelMap.put("Key", output);
 
-        double convertedValue = 0;
+            double convertedValue = 0;
 //        DEBUGGING
 //        System.out.println(currencyAbbreviation.equalsIgnoreCase("AED"));
 //        System.out.println(currencyAbbreviation);
-        if (currencyAbbreviation.equalsIgnoreCase("AED")) {
-               convertedValue = value / output.getInternationalCurrency().getAED();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("BHD")) {
-            convertedValue = value / output.getInternationalCurrency().getBHD();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("CAD")) {
-            convertedValue = value / output.getInternationalCurrency().getCAD();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("CHF")) {
-            convertedValue = value / output.getInternationalCurrency().getCHF();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("GBP")) {
-            convertedValue = value / output.getInternationalCurrency().getGBP();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("KWD")) {
-            convertedValue = value / output.getInternationalCurrency().getKWD();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("KYD")) {
-            convertedValue = value / output.getInternationalCurrency().getKYD();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("OMR")) {
-            convertedValue = value / output.getInternationalCurrency().getOMR();
-        }
-        if (currencyAbbreviation.equalsIgnoreCase("USD")) {
-            convertedValue = value / output.getInternationalCurrency().getUSD();
-        }
-//        else {
-//
-//        }
+            if (currencyAbbreviation.equalsIgnoreCase("AED")) {
+                convertedValue = value / output.getInternationalCurrency().getAED();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("BHD")) {
+                convertedValue = value / output.getInternationalCurrency().getBHD();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("CAD")) {
+                convertedValue = value / output.getInternationalCurrency().getCAD();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("CHF")) {
+                convertedValue = value / output.getInternationalCurrency().getCHF();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("GBP")) {
+                convertedValue = value / output.getInternationalCurrency().getGBP();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("KWD")) {
+                convertedValue = value / output.getInternationalCurrency().getKWD();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("KYD")) {
+                convertedValue = value / output.getInternationalCurrency().getKYD();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("OMR")) {
+                convertedValue = value / output.getInternationalCurrency().getOMR();
+            }
+            if (currencyAbbreviation.equalsIgnoreCase("USD")) {
+                convertedValue = value / output.getInternationalCurrency().getUSD();
+            }
 
-        //additional modelMap, you can still utilize the "key" created above
-        modelMap.addAttribute("convertedValue", convertedValue);
-                return "searchresult";
+            //additional modelMap, you can still utilize the "key" created above
+            modelMap.addAttribute("convertedValue", convertedValue);
+            return "searchresult";
+
     }
-
 }

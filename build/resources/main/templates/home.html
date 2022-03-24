@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" th:href="@{/app.css}" />
 <head>
     <meta charset="UTF-8"/>
-    <title>Currency Converter</title>
+    <title>Euro Currency Converter</title>
     <style>
  body{
      background-image: url("https://thumbs.dreamstime.com/z/international-money-background-24288927.jpg");
      text-align: center;
  }
- h1{
 
-     font-family: Tahoma, sans-serif;
-
- }
     </style>
 </head>
 <body>
-<h1> EUROPEAN CURRENCY CONVERTER </h1>
-<p1> Please note this converter is always converting from your entered currency to Euros. </p1>
-<p th:text="${euroKey.base}"></p>
-<p>Conversion rates pulled as of:</p>
-<p th:text="${euroKey.date}"></p>
+
+    <div class="textbox">
+
+            <h1>EUROPEAN CURRENCY CONVERTER</h1>
+            <p>Please note this converter is always converting from your entered currency to Euros. Accepted Currencies: </p>
+        <p><b> AED, BHD, CAD, CHF, GBP, KWD, KYD, OMR, and USD </b></p>
+            <p th:text="${euroKey.base}"></p>
+            <p>Conversion rates pulled as of: </p>
+            <p th:text="${euroKey.date}"></p>
+
+        <form action="/q" method="get">
+            <input name="currencyTypeUserSearch" type="search" placeholder="Search currency abbreviation" required="required" autocomplete="off"/>
+            <input name="valueUserSearch" type="search" placeholder="Enter currency amount" required="required" autocomplete="off"/>
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
 
 
+<!--
 <form action="/q" method="get">
     <input name="currencyTypeUserSearch" type="search" placeholder="Search currency abbreviation" required="required" autocomplete="off"/>
     <input name="valueUserSearch" type="search" placeholder="Enter currency amount" required="required" autocomplete="off"/>
     <input type="submit" value="Submit">
 </form>
-
+-->
 
 </body>
 </html>

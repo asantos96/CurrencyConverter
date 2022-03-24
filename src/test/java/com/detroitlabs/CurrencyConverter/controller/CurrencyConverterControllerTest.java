@@ -1,22 +1,30 @@
 package com.detroitlabs.CurrencyConverter.controller;
 
+import com.detroitlabs.CurrencyConverter.model.Currency;
+import com.detroitlabs.CurrencyConverter.service.CurrencyService;
 import org.junit.jupiter.api.Test;
+import org.springframework.ui.ModelMap;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CurrencyConverterControllerTest {
 
-//    @Test
-//    void shouldReturnUSDConversionFromEuros() {
-//        //Arrange
-//        CurrencyConverterController testUSD = new CurrencyConverterController();
-//
-//        //Act
-//        double result = testUSD.currencySearchResult("USD" , 50, @Null);
-//
-//        //Assert
-//        assertEquals(result, 45.48150) ;
-//    }
+    private CurrencyService currencyService;
+    private String currencyAbbreviation = "USD";
+    private double value = 55.31;
+
+    @Test
+    void shouldReturnUSDConversionFromEuros() {
+        //Arrange
+        Currency output = currencyService.retrieveCurrencyData();
+
+        //Act
+        double convertedValue = value / output.getInternationalCurrency().getUSD();
+
+        //Assert
+        assertEquals(convertedValue, 50.29558088167762);
+    }
 }
